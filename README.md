@@ -1,6 +1,6 @@
 # npmdoc-hostile
 
-#### api documentation for  [hostile (v1.3.0)](https://github.com/feross/hostile)  [![npm package](https://img.shields.io/npm/v/npmdoc-hostile.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hostile) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hostile.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hostile)
+#### basic api documentation for  [hostile (v1.3.0)](https://github.com/feross/hostile)  [![npm package](https://img.shields.io/npm/v/npmdoc-hostile.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hostile) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hostile.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hostile)
 
 #### Simple /etc/hosts manipulation
 
