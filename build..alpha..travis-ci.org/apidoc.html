@@ -131,20 +131,19 @@
   return exports.getFile(exports.HOSTS, preserveFormatting, cb)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-#### get all lines in /etc/hosts
+ * @param  {string}   ip
+ * @param  {string}   host
+ * @param  {function(Error)=} cb
+ */
+exports.set = function (ip, host, cb) {
+var didUpdate = false
+if (typeof cb !== &#x27;function&#x27;) {
+  return _set(exports.<span class="apidocCodeKeywordSpan">get</span>(true))
+}
 
-```js
-// If `preserveFormatting` is true, then include comments, blank lines and other
-// non-host entries in the result
-var preserveFormatting = false
-
-hostile.<span class="apidocCodeKeywordSpan">get</span>(preserveFormatting, function (err, lines) {
-  if (err) {
-    console.error(err.message)
-  }
-  lines.forEach(function (line) {
-    console.log(line) // [IP, Host]
-  })
+exports.get(true, function (err, lines) {
+  if (err) return cb(err)
+  _set(lines)
 })
 ...</pre></li>
     </ul>
@@ -192,21 +191,21 @@ hostile.<span class="apidocCodeKeywordSpan">get</span>(preserveFormatting, funct
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-#### get all lines in any file
+/**
+* Wrapper of `getFile` for getting a list of lines in the Host file
+*
+* @param  {boolean}   preserveFormatting
+* @param  {function(err, lines)=} cb
+*/
+exports.get = function (preserveFormatting, cb) {
+ return exports.<span class="apidocCodeKeywordSpan">getFile</span>(exports.HOSTS, preserveFormatting, cb)
+}
 
-```js
-// If `preserveFormatting` is true, then include comments, blank lines and other
-// non-host entries in the result
-var preserveFormatting = false
-
-hostile.<span class="apidocCodeKeywordSpan">getFile</span>(file_path, preserveFormatting, function (err, lines) {
-  if (err) {
-    console.error(err.message)
-  }
-  lines.forEach(function (line) {
-    console.log(line) // [IP, Host]
-  })
-})
+/**
+* Add a rule to /etc/hosts. If the rule already exists, then this does nothing.
+*
+* @param  {string}   ip
+* @param  {string}   host
 ...</pre></li>
     </ul>
 
